@@ -30,7 +30,7 @@ The **Car Accessories System** is a Java-based project for managing car accessor
 
 Follow these steps to get started with the Car Accessories System:
 
-1. Clone the repository: `git clone [https://github.com/Himanshu-singh123/JavaDP/tree/main]`
+1. Clone the repository: `git clone [ https://github.com/Himanshu-singh123/JavaDP/tree/main ]`
 2. Open the project in your preferred Java IDE (e.g., Eclipse).
 3. Configure your database settings in `application.properties` or `application.yml`.
 4. Build and run the project.
@@ -52,4 +52,4 @@ Contributions to this project are welcome. If you have suggestions, bug reports,
 
 ## License
 
-This project is licensed under the [Eclipse Public License - v 2.0] License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the [ Eclipse Public License - v 2.0 ] License - see the [LICENSE](LICENSE) file for details.
