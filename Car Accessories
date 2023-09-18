@@ -1,0 +1,138 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+class Accessory {
+    private String name;
+    private double price;
+    private int quantity;
+
+    public Accessory(String name, double price, int quantity) {
+        this.name = name;
+        this.price = price;
+        this.quantity = quantity;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void updateQuantity(int delta) {
+        quantity += delta;
+    }
+}
+
+class Inventory {
+    private List<Accessory> accessories;
+
+    public Inventory() {
+        accessories = new ArrayList<>();
+    }
+
+    public void addAccessory(Accessory accessory) {
+        accessories.add(accessory);
+    }
+
+    public List<Accessory> getAllAccessories() {
+        return accessories;
+    }
+
+    public Accessory findAccessoryByName(String name) {
+        for (Accessory accessory : accessories) {
+            if (accessory.getName().equalsIgnoreCase(name)) {
+                return accessory;
+            }
+        }
+        return null;
+    }
+}
+
+class Order {
+    private String accessoryName;
+    private int quantity;
+
+    public Order(String accessoryName, int quantity) {
+        this.accessoryName = accessoryName;
+        this.quantity = quantity;
+    }
+
+    public String getAccessoryName() {
+        return accessoryName;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+}
+
+public class CarAccessoriesSystem {
+    public static void main(String[] args) {
+        @SuppressWarnings("resource")
+		Scanner scanner = new Scanner(System.in);
+        Inventory inventory = new Inventory();
+
+        // Populate the inventory with some accessories
+        inventory.addAccessory(new Accessory("Floor Mats", 30.0, 50));
+        inventory.addAccessory(new Accessory("Seat Covers", 50.0, 40));
+        inventory.addAccessory(new Accessory("Car Charger", 15.0, 60));
+
+        while (true) {
+            System.out.println("Car Accessories System Menu:");
+            System.out.println("1. View Accessories");
+            System.out.println("2. Place an Order");
+            System.out.println("3. Exit");
+            System.out.print("Enter your choice: ");
+
+            int choice = scanner.nextInt();
+            scanner.nextLine(); // Consume newline
+
+            switch (choice) {
+                case 1:
+                    System.out.println("Available Accessories:");
+                    List<Accessory> accessories = inventory.getAllAccessories();
+                    for (Accessory accessory : accessories) {
+                        System.out.println(accessory.getName() + " - Price: $" + accessory.getPrice() +
+                                " - Quantity: " + accessory.getQuantity());
+                    }
+                    break;
+
+                case 2:
+                    System.out.print("Enter the accessory name: ");
+                    String accessoryName = scanner.nextLine();
+                    Accessory foundAccessory = inventory.findAccessoryByName(accessoryName);
+
+                    if (foundAccessory != null) {
+                        System.out.print("Enter the quantity: ");
+                        int quantity = scanner.nextInt();
+                        scanner.nextLine(); // Consume newline
+
+                        if (foundAccessory.getQuantity() >= quantity) {
+                            foundAccessory.updateQuantity(-quantity);
+                            System.out.println("Order placed successfully!");
+                        } else {
+                            System.out.println("Insufficient quantity in stock!");
+                        }
+                    } else {
+                        System.out.println("Accessory not found!");
+                    }
+                    break;
+
+                case 3:
+                    System.out.println("Exiting the Car Accessories System. Goodbye!");
+                    System.exit(0);
+
+                default:
+                    System.out.println("Invalid choice. Please try again.");
+                    break;
+            }
+        }
+    }
+}
