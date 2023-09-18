@@ -46,10 +46,10 @@ Follow these steps to get started with the Car Accessories System:
 Contributions to this project are welcome. If you have suggestions, bug reports, or would like to contribute code, please follow these steps:
 
 1. Fork the project on GitHub.
-2. Create a new branch for your feature or bug fix.
-3. Make your changes and test them thoroughly.
-4. Create a pull request with a clear description of your changes.
+2. Create a new branch for my feature or bug fix.
+3. Make my changes and test them thoroughly.
+4. Create a pull request with a clear description of My changes.
 
 ## License
 
-This project is licensed under the [Your License Name] License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the [Eclipse Public License - v 2.0] License - see the [LICENSE](LICENSE) file for details.
